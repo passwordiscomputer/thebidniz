@@ -1,5 +1,12 @@
 <h1>the BidNiz . com</h1>
+<% if !current_user %>
+  <%= link_to "SIGN UP", new_user_registration_path %>
+  <%= link_to "SIGN IN", new_user_session_path %>
+<% end %>
+<% if current_user %>
+  Hello, <%=current_user.account.name %>
+  <%= link_to "SIGN OUT", destroy_user_session_path, :method => :delete %>
+  <%= link_to "NEW PROJECT", new_project_path %>
+<% end %>
 <a href="/">HOME</a>
-<%= link_to "SIGN UP", new_user_registration_path %>
-<%= link_to "SIGN IN", new_user_session_path %>
-<%= link_to "SIGN OUT", destroy_user_session_path, :method => :delete %>
+<%= link_to "PROJECTS", projects_path %>

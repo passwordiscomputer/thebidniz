@@ -9,7 +9,6 @@ class User < ApplicationRecord
   after_create :create_new_account
 
   def create_new_account
-    binding.pry
     self.create_account(:name => @name)
   end
 end
