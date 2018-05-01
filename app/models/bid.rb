@@ -1,12 +1,6 @@
 class Bid < ApplicationRecord
-
-  
-
-  belongs_to :client, :class_name => 'Account', :foreign_key => 'client_id'
-
-  belongs_to :freelancer, :class_name => 'Account', :foreign_key => 'freelancer_id'
-
-
-
+  belongs_to :project
+  belongs_to :client
+  belongs_to :freelancer
   validates :description, :presence => true
 end

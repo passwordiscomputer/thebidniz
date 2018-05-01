@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_30_222306) do
+ActiveRecord::Schema.define(version: 2018_05_01_164624) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,9 +26,19 @@ ActiveRecord::Schema.define(version: 2018_04_30_222306) do
   create_table "bids", force: :cascade do |t|
     t.integer "client_id"
     t.integer "freelancer_id"
-    t.string "detail"
+    t.string "conditions"
     t.integer "price"
     t.boolean "expired"
+    t.boolean "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "client_ratings", force: :cascade do |t|
+    t.integer "client_id"
+    t.integer "freelancer_id"
+    t.integer "rating"
+    t.string "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -41,12 +51,21 @@ ActiveRecord::Schema.define(version: 2018_04_30_222306) do
 
   create_table "contracts", force: :cascade do |t|
     t.integer "project_id"
-    t.boolean "completed"
-    t.boolean "paid"
     t.integer "freelancer_id"
     t.integer "client_id"
+    t.boolean "completed"
+    t.boolean "paid"
     t.integer "price"
     t.date "due"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "freelancer_ratings", force: :cascade do |t|
+    t.integer "freelancer_id"
+    t.integer "client_id"
+    t.integer "rating"
+    t.string "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

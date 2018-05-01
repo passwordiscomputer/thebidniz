@@ -1,5 +1,5 @@
 require 'rails_helper'
 
-describe Project do
+describe Contract do
 
 end
