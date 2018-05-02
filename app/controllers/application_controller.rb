@@ -1,10 +1,19 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_user
+  helper_method :current_user, :current_client, :current_freelancer
 
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  
+
+
+  def current_client
+    current_user.account.client
+  end
+
+  def current_freelancer
+    current_user.account.freelancer
+  end
+
   protected
 
   def configure_permitted_parameters

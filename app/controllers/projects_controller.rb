@@ -4,6 +4,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
+    
   end
 
   def index

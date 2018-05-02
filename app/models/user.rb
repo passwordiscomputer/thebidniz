@@ -10,5 +10,7 @@ class User < ApplicationRecord
 
   def create_new_account
     self.create_account(:name => @name)
+    self.account.create_client()
+    self.account.create_freelancer()
   end
 end

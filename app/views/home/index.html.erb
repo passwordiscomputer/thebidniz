@@ -1,1 +1,3 @@
-<h1>Freaky <%= current_user.account.name%>!</h1>
+<% if current_user %>
+  <h1>Freaky <%= current_user.account.name%>!</h1>
+<% end %>
